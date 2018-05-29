@@ -1,7 +1,7 @@
-# PARLOMA Hand ROS Driver
+# Roboz ROS Driver
 
-The Driver of the PARLOMA Hand written in C++ for the communication 
-between the Hand and ROS, using ROSSerial!
+The Driver of the Roboz project written in C++ for the communication 
+between the Robot and ROS, using ROSSerial!
 
 ## Build
 
@@ -16,16 +16,7 @@ Then run
 $ rosrun rosserial_python serial_node.py /dev/ttyACM0
 ```
 
-In a new shell, send a command to `/right_hand`. For instance, to close the index finger, run.
+Now you'll see two topic to control the robot:
 
-```
-$ rostopic pub /right_hand sensor_msgs/JointState "header:
-  seq: 0
-  stamp: {secs: 0, nsecs: 0}
-  frame_id: ''
-name: ['index']
-position: [1.0]
-velocity: []
-effort: []" 
-```
-
+ - `\led` (`std_msgs/UInt8`) controls the eyes' Led Color. The topic value control the Hue of the Color.
+ - `\servo` (`std_msgs/UInt8`) controls the mouth position.
